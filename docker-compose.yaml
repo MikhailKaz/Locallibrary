@@ -1,0 +1,24 @@
+services:
+  database:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    profiles:
+      - dev  # This profile is for development
+      - prod # This profile is for production
+
+  app:
+    build: .
+    depends_on:
+      - database
+    profiles:
+      - prod # This service is only for production
+    ports:
+      - "8000:8000"
+
+volumes:
+  db_data: ~
