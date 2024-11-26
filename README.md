@@ -1,54 +1,36 @@
-Description
+# LocalLibrary
 
 Это веб-приложение онлайн-каталог для библиотеки, где пользователи могут просматривать 
 доступные книги и управлять своими учетными записями.
 
------------------------------------------------------------------------------------------
+## Dependencies
 
-Dependencies
+- `poetry 1.8.3`
+- `python 3.12`
 
-poetry 1.8.3
+# Clone repository
 
-python 3.12
-
------------------------------------------------------------------------------------------
-
-Clone repository
-
+```bash
 git clone https://github.com/MikhailKaz/Locallibrary.git
-
------------------------------------------------------------------------------------------
-
-Create enviroment
-
-install python3
- 
-python3 -m venv venv
-
-source venv/bin/activate
-
------------------------------------------------------------------------------------------
-
-Install Dependencies
-
-pip install poetry
-
-pip install django
-
------------------------------------------------------------------------------------------
-
-Start server 
-
-python3 manage.py runserver
-
------------------------------------------------------------------------------------------
-
-Migrations
-
-python3 manage.py makemigrations
-
-python3 manage.py migrate
-
------------------------------------------------------------------------------------------
+```
 
 
+## Install Dependencies
+
+```bash
+pip install poetry==1.8.3
+poetry install
+```
+
+## Start server 
+
+```bash
+poetry run python3 manage.py runserver
+```
+
+## Migrations
+
+```bash
+poetry run python3 manage.py makemigrations
+poetry run python3 manage.py migrate
+```
