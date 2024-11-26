@@ -23,7 +23,7 @@ Create enviroment
 
 install python3
  
-python -m venv venv
+python3 -m venv venv
 
 source venv/bin/activate
 
@@ -31,17 +31,9 @@ source venv/bin/activate
 
 Install Dependencies
 
-1. Install Poetry
+pip install poetry
 
-pip install pipx
-
-pipx install poetry
-
-poetry init
-
-2. Install Django and Django Rest Framework
-
-poetry add django djangorestframework
+pip install django
 
 -----------------------------------------------------------------------------------------
 
