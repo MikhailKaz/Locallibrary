@@ -68,6 +68,20 @@ class Book(models.Model):
         """
         return reverse('book-detail', args=[str(self.id)])
 
+    def book_detail_view(request,pk):
+        try:
+            book_id=Book.objects.get(pk=pk)
+        except Book.DoesNotExist:
+            raise Http404("Book does not exist")
+
+        #book_id=get_object_or_404(Book, pk=pk)
+
+        return render(
+            request,
+            'catalog/book_detail.html',
+            context={'book':book_id,}
+        )
+
 import uuid # Required for unique book instances
 
 class BookInstance(models.Model):
@@ -128,4 +142,5 @@ class Author(models.Model):
         return ', '.join([ genre.name for genre in self.genre.all()[:3] ])
     display_genre.short_description = 'Genre'
 
-
+    class Meta:
+        ordering = ['last_name']

@@ -12,8 +12,6 @@
 
 ```bash
 git clone https://github.com/MikhailKaz/Locallibrary.git
-```
-
 
 ## Install Dependencies
 
