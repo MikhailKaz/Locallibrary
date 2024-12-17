@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Author, Genre, Book, BookInstance, Library, Language
+from .models import Author, Book, BookInstance, Genre, Language, Library
 
 admin.site.register(Genre)
 admin.site.register(Language)
@@ -26,13 +26,14 @@ class BookAdmin(admin.ModelAdmin):
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('status', 'due_back')
+    list_display = ('book', 'status', 'borrower', 'due_back', 'id')
 
     fieldsets = (
         (None, {
             'fields': ('book','imprint', 'id','library')
         }),
         ('Availability', {
-            'fields': ('status', 'due_back')
+            'fields': ('status', 'due_back', 'borrower')
         }),
     )
 
